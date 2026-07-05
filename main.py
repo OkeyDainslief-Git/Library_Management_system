@@ -1,4 +1,4 @@
-from tools import add_book, view_books, borrow_book, return_book, delete_book,search_book
+from tools import add_book, view_books, borrow_book, return_book, delete_book,search_book,count_books
 import os
 
 while True:
@@ -9,10 +9,12 @@ while True:
     print("4. Return Book")
     print("5. Delete Book")
     print("6. Search Books")
-    print("7. Exit")
-    
-    choice = input("Enter your choice (1-7): ")
-    
+    print("7. Count Books")
+    print("8. Exit")
+
+
+    choice = input("Enter your choice (1-8): ")
+
     if choice == '1':
         add_book()
     elif choice == '2':
@@ -26,6 +28,8 @@ while True:
     elif choice == '6':
         search_book()
     elif choice == '7':
+        count_books()
+    elif choice == '8':
         print("Exiting the program.")
         break
     else:

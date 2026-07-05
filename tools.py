@@ -34,6 +34,10 @@ def add_book():
     
     title = input("Enter Title: ")
     author = input("Enter Author Name: ")
+    for book in books:
+        if book['title'].strip().lower() == title.strip().lower() and book['author'].strip().lower() == author.strip().lower():
+            print("This book already exists in the library.")
+            return
     year = int(input("Enter Year: "))
     new_id = len(books) + 1
     
@@ -149,8 +153,24 @@ def delete_book():
             save_books(books)
             print(f"Book '{book['title']}' deleted successfully!")
             return
+        
+def count_books():
+    books = load_books()
+    
+    available = 0
+    borrowed = 0
+    
+    for book in books:
+        if book['available']:
+            available += 1
+        else:
+            borrowed += 1
+    
+    print(f"Total books: {len(books)}")
+    print(f"Available books: {available}")
+    print(f"Borrowed books: {borrowed}")
             
-            
+
      
     
     
